@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+    <style>
+        p {
+            word-spacing: -100px;
+            transition: 0.5s;
+        }
+        p:hover {
+            word-spacing: 0;
+        }
+        :root {
+            --cor1: #DD00FF;
+            --cor2: #20FF00;
+            --tamanho: 180px;
+            --escala: 1.2;
+            --imagem: url(cat.jpg);
+        }
+        .test-var {
+            width: var(--tamanho);
+            height: var(--tamanho);
+            background: var(--imagem);
+            background-size: var(--tamanho);
+            background-repeat: no-repeat;
+            background-color: var(--cor1);
+            box-shadow: 10px 20px 20px black;
+        }
+        @keyframes piscante {
+            0% {
+                background-color: var(--cor1);
+            }
+            50% {
+                background-color: var(--cor2);
+
+            }
+            0% {
+                background-color: var(--cor1);
+            }
+        }
+        @keyframes saltitante {
+            0% {
+                top: 0px;
+                /*left: 0px;*/
+            }
+            20% {
+                top: 0px;
+                /*left: 10px;*/
+            }
+            50% {
+                top: -10px;
+                /*left: 10px;*/
+            }
+            80% {
+                top: 0px;
+                /*left: 10px;*/
+            }
+            100% {
+                /*left: 0px;*/
+            }
+        }
+        .test-var:hover {
+            position: relative;
+            /*animation: 0.3s piscante infinite;*/
+            animation: 1s saltitante infinite;
+            box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.4), 10px 20px 20px black;
+        }
+        .test-var:active {
+            box-shadow: inset 0 0 100px 100px rgba(0, 0, 0, 0.4), 10px 20px 20px black;
+            transform: scale(0.9);
+            transform: rotate(45deg);
+        }
+        strong {
+            display: inline;
+            width: 50%;
+            background: red;
+        }
+        h1 {
+            display: inline;
+        }
+        .items li {
+            display: none;
+        }
+        .items li:nth-child(1) {
+            display: block;
+        }
+        .items:hover li {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-var"></div>
+
+    <hr>
+    hello
+
+    cruel
+
+        world <strong>Hello 2</strong> <em>Emphasis</em> <h1>Teste</h1>
+
+    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati facilis inventore quas reprehenderit expedita ipsum voluptate dignissimos voluptatibus illo ad eos amet molestiae fugit consequatur vero minima distinctio id, nobis.</p> -->
+
+    <ul class="items">
+        <li>Menu</li>
+        <li>Ajuda</li>
+        <li>Jogar</li>
+        <li>Sair</li>
+    </ul>
+
+
+
+</body>
+</html>
