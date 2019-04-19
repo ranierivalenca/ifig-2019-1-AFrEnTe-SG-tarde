@@ -5,13 +5,33 @@
     <title>Pendulum</title>
     <style>
         :root {
-            --deg: 80deg;
+            --deg: 40deg;
             --size: 25px;
+            --perspective: 1000px;
         }
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+        body {
+            background: radial-gradient(circle at 50% 10%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0.5) 100%);
+            width: 100vw;
+            height: 100vh;
+            /*perspective: 1000px;*/
+            perspective-origin: 50% 50%;
+        }
+        .light {
+            content: '';
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            width: 400px;
+            height: 400px;
+            background: white;
+            border-radius: 50%;
+            /*box-shadow: 0 0 20px 50px white;*/
+            /*transform: skew(35deg, 30deg);*/
         }
         @keyframes move {
             0%, 100% {
@@ -23,25 +43,32 @@
         }
         @keyframes rotateBall {
             0%, 100% {
-                transform: rotate(calc(-1 * var(--deg)));
+                transform: rotate(calc(-1 * var(--deg))) translateZ(10px);
             }
             50% {
-                transform: rotate(var(--deg));
+                transform: rotate(var(--deg)) translateZ(10px);
             }
         }
         .bar {
-            position: absolute;
-            width: 200px;
+            width: 80px;
             height: 50px;
+            background: linear-gradient(to bottom, hsl(0, 0%, 80%), hsl(0, 0%, 40%));
+            position: absolute;
+            left: calc(50% - 40px);
+            border-bottom-right-radius: 20px;
+            border-bottom-left-radius: 20px;
+            z-index: 1000;
         }
         .pendulum {
             content: "";
             top: 10px;
-            left: 50%;
+            left: calc(50% - (var(--size)/2));
             width: var(--size);
             transform-origin: 50% 0%;
             /*background: rgb(250, 100, 100);*/
             position: absolute;
+            background: transparent;
+            transform: rotateZ(-40deg);
         }
         /*.anim:nth-of-type(1) {
             animation: calc(var(--time) + 2*var(--time-inc) ) move infinite ease-in-out;
@@ -53,9 +80,11 @@
             width: 2px;
             height: 100%;
             background: rgba(200, 200, 200, 0.4);
-            z-index: 0;
+            z-index: -10;
         }
         .pendulum .ball {
+            perspective: var(--perspective);
+            perspective-origin: 50% 50%;
             content: '';
             border-radius: 50%;
             /*border: 1px solid black;*/
@@ -63,12 +92,22 @@
             width: var(--size);
             height: var(--size);
             position: absolute;
-            z-index: 10;
+            z-index: 100;
             transition: 0.1s linear;
             /*box-shadow: inset 5px 5px 0 rgba(255, 255, 255, 0.6);*/
             /*top: var(--height);*/
+            /*transform: rotateZ(40deg) translateZ(0px);*/
         }
-        .pendulum .ball .reflex {
+        .pendulum .ball .shadow {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, .5), rgba(0, 0, 0, 0) 50%);
+            /*transform: rotateX(90deg) translateZ(-40px);*/
+            z-index: -1;
+        }
+        /*.pendulum .ball .reflex {
             width: calc(var(--size) / 3);
             height: calc(var(--size) / 3);
             position: absolute;
@@ -78,13 +117,15 @@
             z-index: 11;
             background-color: hsla(0, 0%, 100%, 0.5);
             box-shadow: 0 0 5px 5px hsla(0, 0%, 100%, 0.5);
-        }
+        }*/
     </style>
 </head>
 <body>
+    <!-- <div class="light"></div> -->
     <div id="holder">
 
     </div>
+    <div class="bar"></div>
     <!-- <div class="pendulum anim">
         <div class="ball"></div>
     </div>
@@ -109,9 +150,9 @@
     <script>
         const pendulums = 15;
         const time = 2;
-        const inc_time = 0.05;
+        const inc_time = 0.02;
         const height = 150;
-        const inc_height = 27;
+        const inc_height = 20;
 
 
         function addCSSRule(sheet, selector, rules, index) {
@@ -132,12 +173,16 @@
             let ball = document.createElement('div');
             ball.className = 'ball';
             ball.setAttribute('hue', Math.random() * 360);
-            ball.style.background = `hsl(${ball.getAttribute('hue')}, 70%, 50%)`;
+            ball.style.background = `radial-gradient(circle at 50% 20%, hsl(${ball.getAttribute('hue')}, 70%, 80%), hsl(${ball.getAttribute('hue')}, 70%, 40%)`;
 
             let ballReflex = document.createElement('div');
             ballReflex.className = 'reflex';
 
-            ball.appendChild(ballReflex);
+            let ballShadow = document.createElement('div');
+            ballShadow.className = 'shadow';
+
+            // ball.appendChild(ballReflex);
+            ball.appendChild(ballShadow);
             pendulum.appendChild(ball);
 
             holder.appendChild(pendulum);
@@ -169,6 +214,10 @@
                 `.pendulum:nth-child(${i + 1}) .ball`,
                 `top: ${height + (i * inc_height)}px;
                  animation: ${time + (i * inc_time)}s rotateBall infinite ease-in-out;`
+            );
+            addCSSRule(document.styleSheets[0],
+                `.pendulum:nth-child(${i + 1}) .ball .shadow`,
+                `transform: rotateX(60deg) translateZ(${(i - pendulums) * (inc_height * 1)}px) scale(${1 - (i - pendulums) * .1});`
             );
             // addCSSRule(document.styleSheets[0],
             //     `.pendulum:nth-child(${i + 1}) .ball .reflex`,
