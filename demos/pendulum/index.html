@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pendulum</title>
+    <style>
+        :root {
+            --deg: 80deg;
+            --size: 25px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        @keyframes move {
+            0%, 100% {
+                transform: rotate(var(--deg));
+            }
+            50% {
+                transform: rotate(calc(-1 * var(--deg)));
+            }
+        }
+        @keyframes rotateBall {
+            0%, 100% {
+                transform: rotate(calc(-1 * var(--deg)));
+            }
+            50% {
+                transform: rotate(var(--deg));
+            }
+        }
+        .bar {
+            position: absolute;
+            width: 200px;
+            height: 50px;
+        }
+        .pendulum {
+            content: "";
+            top: 10px;
+            left: 50%;
+            width: var(--size);
+            transform-origin: 50% 0%;
+            /*background: rgb(250, 100, 100);*/
+            position: absolute;
+        }
+        /*.anim:nth-of-type(1) {
+            animation: calc(var(--time) + 2*var(--time-inc) ) move infinite ease-in-out;
+        }*/
+        .pendulum:after {
+            content: '';
+            position: absolute;
+            left: calc(50% - 1px);
+            width: 2px;
+            height: 100%;
+            background: rgba(200, 200, 200, 0.4);
+            z-index: 0;
+        }
+        .pendulum .ball {
+            content: '';
+            border-radius: 50%;
+            /*border: 1px solid black;*/
+            background: black;
+            width: var(--size);
+            height: var(--size);
+            position: absolute;
+            z-index: 10;
+            transition: 0.1s linear;
+            /*box-shadow: inset 5px 5px 0 rgba(255, 255, 255, 0.6);*/
+            /*top: var(--height);*/
+        }
+        .pendulum .ball .reflex {
+            width: calc(var(--size) / 3);
+            height: calc(var(--size) / 3);
+            position: absolute;
+            border-radius: 50%;
+            left: 2px;
+            top: 2px;
+            z-index: 11;
+            background-color: hsla(0, 0%, 100%, 0.5);
+            box-shadow: 0 0 5px 5px hsla(0, 0%, 100%, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div id="holder">
+
+    </div>
+    <!-- <div class="pendulum anim">
+        <div class="ball"></div>
+    </div>
+    <div class="pendulum anim">
+        <div class="ball"></div>
+    </div>
+    <div class="pendulum anim">
+        <div class="ball"></div>
+    </div>
+    <div class="pendulum anim">
+        <div class="ball"></div>
+    </div>
+    <div class="pendulum anim">
+        <div class="ball"></div>
+    </div>
+    <div class="pendulum anim">
+        <div class="ball"></div>
+    </div>
+    <div class="pendulum anim">
+        <div class="ball"></div>
+    </div> -->
+    <script>
+        const pendulums = 15;
+        const time = 2;
+        const inc_time = 0.05;
+        const height = 150;
+        const inc_height = 27;
+
+
+        function addCSSRule(sheet, selector, rules, index) {
+            if("addRule" in sheet) {
+                sheet.addRule(selector, rules, index);
+            }
+            else if("insertRule" in sheet) {
+                sheet.insertRule(selector + "{" + rules + "}", index);
+            }
+        }
+
+        function addPendulum() {
+            let holder = document.getElementById('holder');
+
+            let pendulum = document.createElement('div');
+            pendulum.className = 'pendulum anim';
+
+            let ball = document.createElement('div');
+            ball.className = 'ball';
+            ball.setAttribute('hue', Math.random() * 360);
+            ball.style.background = `hsl(${ball.getAttribute('hue')}, 70%, 50%)`;
+
+            let ballReflex = document.createElement('div');
+            ballReflex.className = 'reflex';
+
+            ball.appendChild(ballReflex);
+            pendulum.appendChild(ball);
+
+            holder.appendChild(pendulum);
+
+            // atualiza a cor a cada 1s (aleatoriamente)
+            // updateColor = (ball) => {
+            //     return () => {
+            //         ball.style.background = `hsl(${360 * Math.random()}, 100%, ${25 + Math.random() * 50}%)`;
+            //         // console.log(ball);
+            //         // console.log(ball.style);
+            //     }
+            // }
+            // setInterval(updateColor(ball), 1000);
+        }
+
+
+
+        for (let i = 0; i < pendulums; i++) {
+            addPendulum();
+            addCSSRule(document.styleSheets[0],
+                `.anim:nth-child(${i + 1})`,
+                `animation: ${time + (i * inc_time)}s move infinite ease-in-out;`
+            );
+            addCSSRule(document.styleSheets[0],
+                `.pendulum:nth-child(${i + 1})`,
+                `height: ${height + (i * inc_height)}px;`
+            );
+            addCSSRule(document.styleSheets[0],
+                `.pendulum:nth-child(${i + 1}) .ball`,
+                `top: ${height + (i * inc_height)}px;
+                 animation: ${time + (i * inc_time)}s rotateBall infinite ease-in-out;`
+            );
+            // addCSSRule(document.styleSheets[0],
+            //     `.pendulum:nth-child(${i + 1}) .ball .reflex`,
+            //     `top: ${height + (i * inc_height + 5)}px;`
+            // );
+        }
+
+        // atualia a cor de todos a cada 0.1s, girando no disco de cores
+        // setInterval(() => {
+        //     Array.from(document.getElementsByClassName('ball')).map((ball) => {
+        //         ball.style.background = `hsl(${ball.getAttribute('hue')}, 100%, 50%)`;
+        //         ball.setAttribute('hue', parseInt(ball.getAttribute('hue')) + parseInt(Math.random() * 10));
+        //     });
+        // }, 100);
+
+
+    </script>
+</body>
+</html>
