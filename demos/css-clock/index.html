@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Clock</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #wrapper {
+            position: absolute;
+            width: 40vw;
+            height: 40vw;
+            left: 30vw;
+            top: 2vw;
+            border-radius: 50%;
+            border: 30px solid black;
+            background: hsl(180, 80%, 80%);
+            box-shadow: inset 0 0 5vw 5vw hsla(00, 80%, 60%, 0.7);
+        }
+        #wrapper:after {
+            box-sizing: border-box;
+            content:'';
+            position: absolute;
+            left: calc(50% - 1vw);
+            top: calc(50% - 1vw);
+            width: 2vw;
+            height: 2vw;
+            z-index: 10;
+            border-radius: 50%;
+            background: hsl(200, 100%, 80%);
+            border: 2px solid black;
+            box-shadow: 5px 5px 5px black,
+                        10px 10px 10px black,
+                        15px 15px 15px black,
+                        20px 20px 15px black;
+        }
+        #hour, #min, #sec {
+            position: absolute;
+            left: calc(50% - 5px);
+            top: 50%;
+            transform-origin: 50% 0%;
+            width: 10px;
+            background-color: hsla(0, 80%, 50%, 1);
+            transform: rotate(180deg);
+            animation: linear infinite;
+            z-index: 1;
+            border-bottom-left-radius: 10px;
+        }
+        #hour {
+            height: 7vw;
+            animation-name: rotateHours;
+            animation-duration: calc(12 * 360s);
+        }
+        #min {
+            height: 11vw;
+            animation-name: rotateMinutes;
+            animation-duration: 360s;
+        }
+        #sec {
+            height: 12vw;
+            animation-name: rotateSeconds;
+            animation-duration: 6s;
+            background-color: hsl(200, 80%, 0%);
+            box-shadow: 0px 10px 10px 0 black;
+        }
+
+        #numbers div {
+            position: absolute;
+            height: 40%;
+            top: 0%;
+            width: 5vw;
+            left: calc(50% - 2.5vw);
+            transform-origin: 50% 125%;
+            text-align: center;
+            font-size: 2vw;
+            line-height: 4vw;
+            /*background: red;*/
+            border-radius: 2.5vw;
+            box-shadow: inset 0vw -3.5vw 0vw 0 hsla(200, 80%, 40%, 0.7);
+        }
+        #numbers div:before {
+            display: inline-block;
+            width: 4vw;
+            height: 4vw;
+            border-radius: 50%;
+            /*background: hsla(200, 100%, 70%, 1);*/
+            color: white;
+            z-index: 0;
+            font-family: sans-serif;
+            /*box-shadow: inset 0 0 1vw 1vw hsla(270, 80%, 20%, 0.7);*/
+            text-shadow: 1px 1px 0 hsla(200, 80%, 40%, 1),
+                         1px -1px 0 hsla(200, 80%, 40%, 1),
+                         -1px -1px 0 hsla(200, 80%, 40%, 1),
+                         -1px 1px 0 hsla(200, 80%, 40%, 1),
+                         2px 2px 0 hsla(200, 80%, 40%, 1),
+                         2px -2px 0 hsla(200, 80%, 40%, 1),
+                         -2px -2px 0 hsla(200, 80%, 40%, 1),
+                         -2px 2px 0 hsla(200, 80%, 40%, 1),
+                         5px 5px 5px black;
+        }
+        #numbers div:after {
+            content: '';
+            top: 5vw;
+            position: absolute;
+            width: 4px;
+            left: calc(50% - 2px);
+            height: 10px;
+            background: black;
+            z-index: 100;
+        }
+
+        #numbers div:nth-child(1) { transform: rotate(calc(30deg * 1)); }
+        #numbers div:nth-child(2) { transform: rotate(calc(30deg * 2)); }
+        #numbers div:nth-child(3) { transform: rotate(calc(30deg * 3)); }
+        #numbers div:nth-child(4) { transform: rotate(calc(30deg * 4)); }
+        #numbers div:nth-child(5) { transform: rotate(calc(30deg * 5)); }
+        #numbers div:nth-child(6) { transform: rotate(calc(30deg * 6)); }
+        #numbers div:nth-child(7) { transform: rotate(calc(30deg * 7)); }
+        #numbers div:nth-child(8) { transform: rotate(calc(30deg * 8)); }
+        #numbers div:nth-child(9) { transform: rotate(calc(30deg * 9)); }
+        #numbers div:nth-child(10) { transform: rotate(calc(30deg * 10)); }
+        #numbers div:nth-child(11) { transform: rotate(calc(30deg * 11)); }
+        #numbers div:nth-child(12) { transform: rotate(calc(30deg * 12)); }
+        #numbers div:nth-child(1):before {content: 'I'; transform: rotate(calc(30deg * -1));}
+        #numbers div:nth-child(2):before {content: 'II'; transform: rotate(calc(30deg * -2));}
+        #numbers div:nth-child(3):before {content: '3'; transform: rotate(calc(30deg * -3)) scale(2);}
+        #numbers div:nth-child(4):before {content: 'IV'; transform: rotate(calc(30deg * -4));}
+        #numbers div:nth-child(5):before {content: 'V'; transform: rotate(calc(30deg * -5));}
+        #numbers div:nth-child(6):before {content: '6'; transform: rotate(calc(30deg * -6)) scale(2);}
+        #numbers div:nth-child(7):before {content: 'VII'; transform: rotate(calc(30deg * -7));}
+        #numbers div:nth-child(8):before {content: 'VIII'; transform: rotate(calc(30deg * -8));}
+        #numbers div:nth-child(9):before {content: '9'; transform: rotate(calc(30deg * -9)) scale(2);}
+        #numbers div:nth-child(10):before {content: 'X'; transform: rotate(calc(30deg * -10));}
+        #numbers div:nth-child(11):before {content: 'XI'; transform: rotate(calc(30deg * -11));}
+        #numbers div:nth-child(12):before {content: '12'; transform: rotate(calc(30deg * -12)) scale(2);}
+
+        #numbers div:nth-child(3n):after {
+            transform: scale(2.5);
+            background: white;
+        }
+
+        /*@keyframes rotateHours {
+            0% {
+                transform: rotate(180deg);
+            }
+            50% {
+                transform: rotate(360deg);
+            }
+            100% {
+                transform: rotate(540deg);
+            }
+        }*/
+    </style>
+    <style id="keyframes"></style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="hour"></div>
+        <div id="min"></div>
+        <div id="sec"></div>
+        <div id="numbers">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <script>
+        let date = new Date();
+        let hours = date.getHours(), mins = date.getMinutes(), secs = date.getSeconds();
+        let secAngle = (secs / 60) * 360;
+        let minAngle = (mins / 60) * 360 + 6 * (secAngle / 360);
+        let hourAngle = ((hours % 12) / 12) * 360 + 30 * (minAngle / 360);
+        console.log(hourAngle, minAngle, secAngle);
+        [secAngle, minAngle, hourAngle] = [secAngle, minAngle, hourAngle].map(el => { return 180 + el; });
+
+        function rotateKeyframes(name, startAngle, hei) {
+            startAngle = parseInt(startAngle);
+            let pi = Math.PI;
+            let radAngle = (startAngle / 180) * pi + pi / 4;
+            return `
+                @keyframes ${name} {
+                    0% {
+                        transform: rotate(${startAngle}deg);
+                        box-shadow: ${Math.sin(radAngle) * hei}px ${Math.cos(radAngle) * hei}px 10px black;
+                    }
+                    25% {
+                        box-shadow: ${Math.sin(radAngle + .5*pi) * hei}px ${Math.cos(radAngle + .5*pi) * hei}px 10px black;
+                    }
+                    50% {
+                        transform: rotate(${startAngle + 180}deg);
+                        box-shadow: ${Math.sin(radAngle + pi) * hei}px ${Math.cos(radAngle + pi) * hei}px 10px black;
+                    }
+                    75% {
+                        box-shadow: ${Math.sin(radAngle + 1.5*pi) * hei}px ${Math.cos(radAngle + 1.5*pi) * hei}px 10px black;
+                    }
+                    100% {
+                        transform: rotate(${startAngle + 360}deg);
+                        box-shadow: ${Math.sin(radAngle + 2*pi) * hei}px ${Math.cos(radAngle + 2*pi) * hei}px 10px black;
+                    }
+                }
+            `
+
+        }
+
+        document.getElementById('keyframes').innerHTML = `
+            ${rotateKeyframes('rotateHours', hourAngle, 5)}
+            ${rotateKeyframes('rotateMinutes', minAngle, 13)}
+            ${rotateKeyframes('rotateSeconds', secAngle, 25)}
+        `;
+    </script>
+</body>
+</html>
