@@ -7,7 +7,7 @@
         :root {
             --deg: 40deg;
             --size: 25px;
-            --perspective: 1000px;
+            /*--perspective: 1000px;*/
         }
         * {
             margin: 0;
@@ -19,7 +19,7 @@
             width: 100vw;
             height: 100vh;
             /*perspective: 1000px;*/
-            perspective-origin: 50% 50%;
+            /*perspective-origin: 50% 50%;*/
         }
         .light {
             content: '';
@@ -68,7 +68,7 @@
             /*background: rgb(250, 100, 100);*/
             position: absolute;
             background: transparent;
-            transform: rotateZ(-40deg);
+            transform: rotateZ(-30deg);
         }
         /*.anim:nth-of-type(1) {
             animation: calc(var(--time) + 2*var(--time-inc) ) move infinite ease-in-out;
@@ -83,8 +83,8 @@
             z-index: -10;
         }
         .pendulum .ball {
-            perspective: var(--perspective);
-            perspective-origin: 50% 50%;
+            /*perspective: var(--perspective);*/
+            /*perspective-origin: 50% 50%;*/
             content: '';
             border-radius: 50%;
             /*border: 1px solid black;*/
@@ -94,6 +94,7 @@
             position: absolute;
             z-index: 100;
             transition: 0.1s linear;
+            transform: rotateZ(30deg);
             /*box-shadow: inset 5px 5px 0 rgba(255, 255, 255, 0.6);*/
             /*top: var(--height);*/
             /*transform: rotateZ(40deg) translateZ(0px);*/
@@ -153,6 +154,7 @@
         const inc_time = 0.02;
         const height = 150;
         const inc_height = 20;
+        const animate = false;
 
 
         function addCSSRule(sheet, selector, rules, index) {
@@ -168,7 +170,7 @@
             let holder = document.getElementById('holder');
 
             let pendulum = document.createElement('div');
-            pendulum.className = 'pendulum anim';
+            pendulum.className = `pendulum ${animate ? 'anim': ''}`;
 
             let ball = document.createElement('div');
             ball.className = 'ball';
@@ -213,11 +215,11 @@
             addCSSRule(document.styleSheets[0],
                 `.pendulum:nth-child(${i + 1}) .ball`,
                 `top: ${height + (i * inc_height)}px;
-                 animation: ${time + (i * inc_time)}s rotateBall infinite ease-in-out;`
+                 animation: ${time + (i * inc_time)}s ${animate ? 'rotateBall': ''} infinite ease-in-out;`
             );
             addCSSRule(document.styleSheets[0],
                 `.pendulum:nth-child(${i + 1}) .ball .shadow`,
-                `transform: rotateX(60deg) translateZ(${(i - pendulums) * (inc_height * 1)}px) scale(${1 - (i - pendulums) * .1});`
+                `transform: rotateX(60deg) translateZ(${(i - pendulums) * (inc_height * .8)}px) scale(${1 - (i - pendulums) * .1});`
             );
             // addCSSRule(document.styleSheets[0],
             //     `.pendulum:nth-child(${i + 1}) .ball .reflex`,
