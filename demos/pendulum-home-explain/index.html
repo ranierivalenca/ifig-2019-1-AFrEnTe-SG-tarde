@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .pendulo {
+            width: 50px;
+            height: 200px;
+            left: calc(50% - 25px);
+            position: absolute;
+            transform-origin: 50% 0%;
+            animation: 2s infinite pendulo ease-in-out;
+        }
+        @keyframes pendulo {
+            0%, 100% {
+                transform: rotate(-40deg);
+            }
+            50% {
+                transform: rotate(40deg);
+            }
+        }
+        .pendulo .bola {
+            position: absolute;
+            top: 100%;
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle at 50% 20%, hsl(0,80%,70%) , hsl(0, 80%, 30%) 50%);
+            border-radius: 50%;
+        }
+        .pendulo:after{
+            content: '';
+            width: 4px;
+            height: 100%;
+            background: black;
+            position: absolute;
+            left: calc(50% - 2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="pendulo">
+        <div class="bola"></div>
+    </div>
+</body>
+</html>
