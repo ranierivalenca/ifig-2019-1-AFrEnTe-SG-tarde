@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        :root {
+            --w: 70%;
+            --h: 50%;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        #lucas {
+            display: none;
+        }
+        .dialog {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0px;
+            height: 0px;
+            border: 1px solid hsla(0, 0%, 0%, 0);
+            border-radius: 2em;
+            overflow: hidden;
+            transition: 1s;
+            z-index: 10;
+            background: white;
+        }
+        .dialog div {
+            width: var(--w);
+            height: var(--h);
+            padding: 1em;
+        }
+         .dialog + .black {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            z-index: -1;
+            transition: 1s;
+         }
+        label[for="lucas"] {
+            cursor: pointer;
+        }
+        #lucas:checked + .dialog {
+            /*display: block;*/
+            width: var(--w);
+            height: var(--h);
+            top: calc(50% - (var(--h) / 2));
+            left: calc(50% - (var(--w) / 2));
+            border: 1px solid hsla(0, 0%, 0%, 1);
+        }
+        #lucas:checked + .dialog + .black {
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <label for="lucas">Click me</label>
+
+    <input type="checkbox" id="lucas">
+    <div class="dialog">
+        <div>
+            <table>
+                <tr>
+                    <td>Maryanne</td>
+                    <td>Fellner</td>
+                    <td>26</td>
+                    <td>Togo</td>
+                </tr>
+                <tr>
+                    <td>Armanda</td>
+                    <td>Babino</td>
+                    <td>20</td>
+                    <td>North Korea</td>
+                </tr>
+                <tr>
+                    <td>Anglea</td>
+                    <td>Oum</td>
+                    <td>30</td>
+                    <td>Egypt</td>
+                </tr>
+            </table>
+            <label for="lucas">Fechar</label>
+        </div>
+    </div>
+    <div class="black"></div>
+</body>
+</html>
