@@ -1,0 +1,65 @@
+* {
+    padding: 0;
+    padding: 0;
+}
+body {
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
+    transform-style: preserve-3d;
+    width: 100vw;
+    height: 100vh;
+}
+.wrapper {
+    width: 50%;
+    height: 80%;
+    position: absolute;
+    left: 25%;
+    top: 10%;
+    // background: red;
+    /*transform: translateY(50%) translateX(50%);*/
+}
+.wrapper div {
+    position: absolute;
+    top: 0%;
+    left: calc(50% - 4px);
+    width: 8px;
+    height: 100%;
+    background: black;
+    transform-origin: 50% 50%;
+    z-index: 1;
+    box-shadow: 0 0 5px hsla(0, 0%, 0%, 0.4);
+    // border-radius: 50% 50% 0 0;
+}
+
+@z_ang: 20deg;
+@z_ang2: 20deg;
+@inc_z: 30px;
+@inc_z2: 50px;
+@inc_ang: 20deg;
+.rotate(@x) {
+    @start_angle: (@inc_ang * @x);
+    @end_angle: (360 + @start_angle);
+    @mid_angle: (@start_angle + @end_angle)/2;
+    .wrapper div:nth-child(@{x}) {
+        animation: ~'rotate@{x}' 2s infinite linear;
+    }
+    @keyframes ~'rotate@{x}' {
+        0% {
+            background: linear-gradient(to bottom, hsl(~'@{start_angle}', 100%, 60%), hsl(~'@{mid_angle}', 100%, 60%));
+            transform: rotateX(30deg) rotateY(~'@{start_angle}') translateZ(@inc_z) rotateZ(~'@{z_ang}');
+        }
+        50% {
+            background: linear-gradient(to bottom, hsl(~'@{start_angle}', 100%, 60%), hsl(~'@{mid_angle}', 100%, 60%));
+            transform: rotateX(-30deg) rotateY(~'@{mid_angle}') translateZ(@inc_z2) rotateZ(~'@{z_ang2}');
+        }
+        100% {
+            background: linear-gradient(to bottom, hsl(~'@{start_angle}', 100%, 60%), hsl(~'@{mid_angle}', 100%, 60%));
+            transform: rotateX(30deg) rotateY(~'@{end_angle}') translateZ(@inc_z) rotateZ(~'@{z_ang}');
+        }
+    }
+}
+.loop(@counter) when (@counter > 0) {
+  .loop((@counter - 1));    // next iteration
+  .rotate(@counter); // code for each iteration
+}
+.loop(36);

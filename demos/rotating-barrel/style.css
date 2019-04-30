@@ -1,0 +1,641 @@
+* {
+  padding: 0;
+}
+body {
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+  transform-style: preserve-3d;
+  width: 100vw;
+  height: 100vh;
+}
+.wrapper {
+  width: 50%;
+  height: 80%;
+  position: absolute;
+  left: 25%;
+  top: 10%;
+  /*transform: translateY(50%) translateX(50%);*/
+}
+.wrapper div {
+  position: absolute;
+  top: 0%;
+  left: calc(50% - 4px);
+  width: 8px;
+  height: 100%;
+  background: black;
+  transform-origin: 50% 50%;
+  z-index: 1;
+  box-shadow: 0 0 5px hsla(0, 0%, 0%, 0.4);
+}
+.wrapper div:nth-child(1) {
+  animation: rotate1 2s infinite linear;
+}
+@keyframes rotate1 {
+  0% {
+    background: linear-gradient(to bottom, hsl(20deg, 100%, 60%), hsl(200deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(20deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(20deg, 100%, 60%), hsl(200deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(200deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(20deg, 100%, 60%), hsl(200deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(380deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(2) {
+  animation: rotate2 2s infinite linear;
+}
+@keyframes rotate2 {
+  0% {
+    background: linear-gradient(to bottom, hsl(40deg, 100%, 60%), hsl(220deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(40deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(40deg, 100%, 60%), hsl(220deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(220deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(40deg, 100%, 60%), hsl(220deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(400deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(3) {
+  animation: rotate3 2s infinite linear;
+}
+@keyframes rotate3 {
+  0% {
+    background: linear-gradient(to bottom, hsl(60deg, 100%, 60%), hsl(240deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(60deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(60deg, 100%, 60%), hsl(240deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(240deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(60deg, 100%, 60%), hsl(240deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(420deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(4) {
+  animation: rotate4 2s infinite linear;
+}
+@keyframes rotate4 {
+  0% {
+    background: linear-gradient(to bottom, hsl(80deg, 100%, 60%), hsl(260deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(80deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(80deg, 100%, 60%), hsl(260deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(260deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(80deg, 100%, 60%), hsl(260deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(440deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(5) {
+  animation: rotate5 2s infinite linear;
+}
+@keyframes rotate5 {
+  0% {
+    background: linear-gradient(to bottom, hsl(100deg, 100%, 60%), hsl(280deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(100deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(100deg, 100%, 60%), hsl(280deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(280deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(100deg, 100%, 60%), hsl(280deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(460deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(6) {
+  animation: rotate6 2s infinite linear;
+}
+@keyframes rotate6 {
+  0% {
+    background: linear-gradient(to bottom, hsl(120deg, 100%, 60%), hsl(300deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(120deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(120deg, 100%, 60%), hsl(300deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(300deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(120deg, 100%, 60%), hsl(300deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(480deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(7) {
+  animation: rotate7 2s infinite linear;
+}
+@keyframes rotate7 {
+  0% {
+    background: linear-gradient(to bottom, hsl(140deg, 100%, 60%), hsl(320deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(140deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(140deg, 100%, 60%), hsl(320deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(320deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(140deg, 100%, 60%), hsl(320deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(500deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(8) {
+  animation: rotate8 2s infinite linear;
+}
+@keyframes rotate8 {
+  0% {
+    background: linear-gradient(to bottom, hsl(160deg, 100%, 60%), hsl(340deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(160deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(160deg, 100%, 60%), hsl(340deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(340deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(160deg, 100%, 60%), hsl(340deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(520deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(9) {
+  animation: rotate9 2s infinite linear;
+}
+@keyframes rotate9 {
+  0% {
+    background: linear-gradient(to bottom, hsl(180deg, 100%, 60%), hsl(360deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(180deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(180deg, 100%, 60%), hsl(360deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(360deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(180deg, 100%, 60%), hsl(360deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(540deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(10) {
+  animation: rotate10 2s infinite linear;
+}
+@keyframes rotate10 {
+  0% {
+    background: linear-gradient(to bottom, hsl(200deg, 100%, 60%), hsl(380deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(200deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(200deg, 100%, 60%), hsl(380deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(380deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(200deg, 100%, 60%), hsl(380deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(560deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(11) {
+  animation: rotate11 2s infinite linear;
+}
+@keyframes rotate11 {
+  0% {
+    background: linear-gradient(to bottom, hsl(220deg, 100%, 60%), hsl(400deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(220deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(220deg, 100%, 60%), hsl(400deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(400deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(220deg, 100%, 60%), hsl(400deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(580deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(12) {
+  animation: rotate12 2s infinite linear;
+}
+@keyframes rotate12 {
+  0% {
+    background: linear-gradient(to bottom, hsl(240deg, 100%, 60%), hsl(420deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(240deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(240deg, 100%, 60%), hsl(420deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(420deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(240deg, 100%, 60%), hsl(420deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(600deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(13) {
+  animation: rotate13 2s infinite linear;
+}
+@keyframes rotate13 {
+  0% {
+    background: linear-gradient(to bottom, hsl(260deg, 100%, 60%), hsl(440deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(260deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(260deg, 100%, 60%), hsl(440deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(440deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(260deg, 100%, 60%), hsl(440deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(620deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(14) {
+  animation: rotate14 2s infinite linear;
+}
+@keyframes rotate14 {
+  0% {
+    background: linear-gradient(to bottom, hsl(280deg, 100%, 60%), hsl(460deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(280deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(280deg, 100%, 60%), hsl(460deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(460deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(280deg, 100%, 60%), hsl(460deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(640deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(15) {
+  animation: rotate15 2s infinite linear;
+}
+@keyframes rotate15 {
+  0% {
+    background: linear-gradient(to bottom, hsl(300deg, 100%, 60%), hsl(480deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(300deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(300deg, 100%, 60%), hsl(480deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(480deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(300deg, 100%, 60%), hsl(480deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(660deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(16) {
+  animation: rotate16 2s infinite linear;
+}
+@keyframes rotate16 {
+  0% {
+    background: linear-gradient(to bottom, hsl(320deg, 100%, 60%), hsl(500deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(320deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(320deg, 100%, 60%), hsl(500deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(500deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(320deg, 100%, 60%), hsl(500deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(680deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(17) {
+  animation: rotate17 2s infinite linear;
+}
+@keyframes rotate17 {
+  0% {
+    background: linear-gradient(to bottom, hsl(340deg, 100%, 60%), hsl(520deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(340deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(340deg, 100%, 60%), hsl(520deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(520deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(340deg, 100%, 60%), hsl(520deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(700deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(18) {
+  animation: rotate18 2s infinite linear;
+}
+@keyframes rotate18 {
+  0% {
+    background: linear-gradient(to bottom, hsl(360deg, 100%, 60%), hsl(540deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(360deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(360deg, 100%, 60%), hsl(540deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(540deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(360deg, 100%, 60%), hsl(540deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(720deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(19) {
+  animation: rotate19 2s infinite linear;
+}
+@keyframes rotate19 {
+  0% {
+    background: linear-gradient(to bottom, hsl(380deg, 100%, 60%), hsl(560deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(380deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(380deg, 100%, 60%), hsl(560deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(560deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(380deg, 100%, 60%), hsl(560deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(740deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(20) {
+  animation: rotate20 2s infinite linear;
+}
+@keyframes rotate20 {
+  0% {
+    background: linear-gradient(to bottom, hsl(400deg, 100%, 60%), hsl(580deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(400deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(400deg, 100%, 60%), hsl(580deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(580deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(400deg, 100%, 60%), hsl(580deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(760deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(21) {
+  animation: rotate21 2s infinite linear;
+}
+@keyframes rotate21 {
+  0% {
+    background: linear-gradient(to bottom, hsl(420deg, 100%, 60%), hsl(600deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(420deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(420deg, 100%, 60%), hsl(600deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(600deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(420deg, 100%, 60%), hsl(600deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(780deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(22) {
+  animation: rotate22 2s infinite linear;
+}
+@keyframes rotate22 {
+  0% {
+    background: linear-gradient(to bottom, hsl(440deg, 100%, 60%), hsl(620deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(440deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(440deg, 100%, 60%), hsl(620deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(620deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(440deg, 100%, 60%), hsl(620deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(800deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(23) {
+  animation: rotate23 2s infinite linear;
+}
+@keyframes rotate23 {
+  0% {
+    background: linear-gradient(to bottom, hsl(460deg, 100%, 60%), hsl(640deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(460deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(460deg, 100%, 60%), hsl(640deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(640deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(460deg, 100%, 60%), hsl(640deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(820deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(24) {
+  animation: rotate24 2s infinite linear;
+}
+@keyframes rotate24 {
+  0% {
+    background: linear-gradient(to bottom, hsl(480deg, 100%, 60%), hsl(660deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(480deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(480deg, 100%, 60%), hsl(660deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(660deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(480deg, 100%, 60%), hsl(660deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(840deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(25) {
+  animation: rotate25 2s infinite linear;
+}
+@keyframes rotate25 {
+  0% {
+    background: linear-gradient(to bottom, hsl(500deg, 100%, 60%), hsl(680deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(500deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(500deg, 100%, 60%), hsl(680deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(680deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(500deg, 100%, 60%), hsl(680deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(860deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(26) {
+  animation: rotate26 2s infinite linear;
+}
+@keyframes rotate26 {
+  0% {
+    background: linear-gradient(to bottom, hsl(520deg, 100%, 60%), hsl(700deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(520deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(520deg, 100%, 60%), hsl(700deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(700deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(520deg, 100%, 60%), hsl(700deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(880deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(27) {
+  animation: rotate27 2s infinite linear;
+}
+@keyframes rotate27 {
+  0% {
+    background: linear-gradient(to bottom, hsl(540deg, 100%, 60%), hsl(720deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(540deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(540deg, 100%, 60%), hsl(720deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(720deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(540deg, 100%, 60%), hsl(720deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(900deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(28) {
+  animation: rotate28 2s infinite linear;
+}
+@keyframes rotate28 {
+  0% {
+    background: linear-gradient(to bottom, hsl(560deg, 100%, 60%), hsl(740deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(560deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(560deg, 100%, 60%), hsl(740deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(740deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(560deg, 100%, 60%), hsl(740deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(920deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(29) {
+  animation: rotate29 2s infinite linear;
+}
+@keyframes rotate29 {
+  0% {
+    background: linear-gradient(to bottom, hsl(580deg, 100%, 60%), hsl(760deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(580deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(580deg, 100%, 60%), hsl(760deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(760deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(580deg, 100%, 60%), hsl(760deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(940deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(30) {
+  animation: rotate30 2s infinite linear;
+}
+@keyframes rotate30 {
+  0% {
+    background: linear-gradient(to bottom, hsl(600deg, 100%, 60%), hsl(780deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(600deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(600deg, 100%, 60%), hsl(780deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(780deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(600deg, 100%, 60%), hsl(780deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(960deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(31) {
+  animation: rotate31 2s infinite linear;
+}
+@keyframes rotate31 {
+  0% {
+    background: linear-gradient(to bottom, hsl(620deg, 100%, 60%), hsl(800deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(620deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(620deg, 100%, 60%), hsl(800deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(800deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(620deg, 100%, 60%), hsl(800deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(980deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(32) {
+  animation: rotate32 2s infinite linear;
+}
+@keyframes rotate32 {
+  0% {
+    background: linear-gradient(to bottom, hsl(640deg, 100%, 60%), hsl(820deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(640deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(640deg, 100%, 60%), hsl(820deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(820deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(640deg, 100%, 60%), hsl(820deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(1000deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(33) {
+  animation: rotate33 2s infinite linear;
+}
+@keyframes rotate33 {
+  0% {
+    background: linear-gradient(to bottom, hsl(660deg, 100%, 60%), hsl(840deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(660deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(660deg, 100%, 60%), hsl(840deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(840deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(660deg, 100%, 60%), hsl(840deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(1020deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(34) {
+  animation: rotate34 2s infinite linear;
+}
+@keyframes rotate34 {
+  0% {
+    background: linear-gradient(to bottom, hsl(680deg, 100%, 60%), hsl(860deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(680deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(680deg, 100%, 60%), hsl(860deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(860deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(680deg, 100%, 60%), hsl(860deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(1040deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(35) {
+  animation: rotate35 2s infinite linear;
+}
+@keyframes rotate35 {
+  0% {
+    background: linear-gradient(to bottom, hsl(700deg, 100%, 60%), hsl(880deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(700deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(700deg, 100%, 60%), hsl(880deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(880deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(700deg, 100%, 60%), hsl(880deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(1060deg) translateZ(30px) rotateZ(20deg);
+  }
+}
+.wrapper div:nth-child(36) {
+  animation: rotate36 2s infinite linear;
+}
+@keyframes rotate36 {
+  0% {
+    background: linear-gradient(to bottom, hsl(720deg, 100%, 60%), hsl(900deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(720deg) translateZ(30px) rotateZ(20deg);
+  }
+  50% {
+    background: linear-gradient(to bottom, hsl(720deg, 100%, 60%), hsl(900deg, 100%, 60%));
+    transform: rotateX(-30deg) rotateY(900deg) translateZ(50px) rotateZ(20deg);
+  }
+  100% {
+    background: linear-gradient(to bottom, hsl(720deg, 100%, 60%), hsl(900deg, 100%, 60%));
+    transform: rotateX(30deg) rotateY(1080deg) translateZ(30px) rotateZ(20deg);
+  }
+}
