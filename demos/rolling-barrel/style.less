@@ -1,0 +1,92 @@
+.clip-path(@cont) {
+    clip-path: @cont;
+    -webkit-clip-path: @cont;
+}
+
+* {
+    padding: 0;
+    padding: 0;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+}
+.barrel {
+    perspective: 1000px;
+    backface-visibility: visible;
+    transform-style: preserve-3d;
+    perspective-origin: 50% 50%;
+    width: 80%;
+    height: 70%;
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    // background: red;
+    // transform: translateZ(-100px)
+}
+.barrel {
+    transform: translateZ(100px);
+}
+.ramp svg {
+    width: 100%;
+    height: 100%;
+}
+.ramp svg path {
+    transform: scale()
+}
+.barrel div {
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: calc(50% - 15px);
+    width: 30px;
+    height: 100%;
+    background: black;
+    transform-origin: 50% 50%;
+    z-index: 1;
+    // box-shadow: 0 0 5px hsla(0, 0%, 0%, 0.4);
+    // border-radius: 50% 50% 0 0;
+}
+
+@sides_incl: 30deg;
+@radius: 50px;
+@sides: 10;
+@turns: 1;
+.rotate(@x) {
+    @inc_ang: (360deg / @sides);
+    @start_angle: (@inc_ang * @x);
+    @right_angle: (@start_angle + (360 * @turns));
+    @left_angle: (@start_angle - (360 * @turns));
+    @start_color: (@x * 360 / @sides);
+    @end_color: @start_color + 180;
+    @h2: 50%;
+    @real_radius: @radius + sin(@sides_incl) * @h2;
+
+    .barrel div:nth-child(@{x}) {
+        display: block;
+        animation: ~'rotate@{x}' 10s infinite linear;
+        background: linear-gradient(to bottom, hsla(@start_color, 100%, 60%, 0.7), hsla(@end_color, 100%, 60%, 0.7));
+    }
+    @keyframes ~'rotate@{x}' {
+        0% {
+            transform: translateX(0) rotateY(~'@{start_angle}') translateZ(@radius) rotateZ(~'@{sides_incl}');
+        }
+        25% {
+            transform: translateX(2 * pi() * @real_radius * @turns) rotateY(~'@{right_angle}') translateZ(@radius) rotateZ(~'@{sides_incl}');
+        }
+        50% {
+            transform: translateX(0) rotateY(~'@{start_angle}') translateZ(@radius) rotateZ(~'@{sides_incl}');
+        }
+        75% {
+            transform: translateX(-2 * pi() * @real_radius * @turns) rotateY(~'@{left_angle}') translateZ(@radius) rotateZ(~'@{sides_incl}');
+        }
+        100% {
+            transform: translateX(0) rotateY(~'@{start_angle}') translateZ(@radius) rotateZ(~'@{sides_incl}');
+        }
+    }
+}
+.loop(@counter) when (@counter > 0) {
+  .loop((@counter - 1));    // next iteration
+  .rotate(@counter); // code for each iteration
+}
+.loop(@sides);
